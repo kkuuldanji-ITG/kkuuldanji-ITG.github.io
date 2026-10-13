@@ -1,0 +1,34 @@
+<!doctype html><html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>쿠팡 꿀템 모음</title>
+<style>
+:root{--bg:#f6f6f8;--card:#fff;--text:#111;--sub:#666;--accent:#ff4646;--note:#fff4c2}
+@media (prefers-color-scheme:dark){:root{--bg:#111216;--card:#1c1d22;--text:#f2f2f2;--sub:#9a9aa3;--note:#3a3214}}
+*{box-sizing:border-box}[hidden]{display:none!important}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,"Malgun Gothic",sans-serif}
+header{position:sticky;top:0;background:var(--bg);padding:16px 16px 10px;z-index:1}
+h1{font-size:22px;margin:0 0 4px}.disc{font-size:12px;color:var(--sub);margin:0 0 10px}
+input{width:100%;font-size:18px;padding:12px 14px;border-radius:12px;border:1px solid #8884;background:var(--card);color:var(--text)}
+main{padding:6px 16px 40px;max-width:640px;margin:auto}
+article{display:flex;gap:12px;align-items:center;background:var(--card);border-radius:16px;padding:12px;margin:10px 0;position:relative}
+article:target{outline:3px solid var(--accent)}
+.num{position:absolute;top:8px;left:8px;background:var(--accent);color:#fff;font-weight:800;border-radius:10px;padding:2px 8px;font-size:15px}
+img{width:96px;height:96px;object-fit:cover;border-radius:12px;flex:none}
+.body{min-width:0;flex:1}h2{font-size:16px;margin:0 0 8px;line-height:1.35}
+.note{background:var(--note);border-radius:8px;padding:6px 8px;font-size:13px;margin:0 0 8px;font-weight:700}
+.note span{display:block;font-weight:400;color:var(--sub);margin-top:2px}
+.buy{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:9px 16px;border-radius:10px}
+.empty{text-align:center;color:var(--sub);padding:30px}
+</style></head><body>
+<header><h1>쿠팡 꿀템 모음</h1><p class="disc">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
+<input id="q" type="search" inputmode="search" placeholder="영상 번호(예: 1) 또는 상품명 검색" aria-label="검색"></header>
+<main id="list"><article id="1" data-q="#1 1 홈플래닛 초음파 가습기 4L">
+  <div class="num">#1</div>
+  <img src="https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/323618008542155-4fc1aca1-01d2-410e-a476-9abb9c4030b6.jpg" alt="" loading="lazy">
+  <div class="body"><h2>홈플래닛 초음파 가습기 4L</h2>
+    <a class="buy" href="https://link.coupang.com/a/hNU1WfNIYe" target="_blank" rel="noopener sponsored">구매하러 가기</a></div>
+</article><p class="empty" hidden>찾는 번호가 없어요</p></main>
+<script>
+const q=document.getElementById('q'),arts=[...document.querySelectorAll('article')],empty=document.querySelector('.empty');
+q.addEventListener('input',()=>{const v=q.value.trim().replace(/^#/,'');let n=0;
+ arts.forEach(a=>{const hit=!v||(/^\d+$/.test(v)?a.id===v:a.dataset.q.includes(v));a.hidden=!hit;n+=hit});empty.hidden=n>0});
+</script></body></html>
