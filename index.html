@@ -17,11 +17,20 @@ img{width:96px;height:96px;object-fit:cover;border-radius:12px;flex:none}
 .note{background:var(--note);border-radius:8px;padding:6px 8px;font-size:13px;margin:0 0 8px;font-weight:700}
 .note span{display:block;font-weight:400;color:var(--sub);margin-top:2px}
 .buy{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;padding:9px 16px;border-radius:10px}
+.hot{margin:4px 0 14px}.hot h3{font-size:20px;margin:6px 0;color:var(--accent);animation:blink 1s steps(2,start) infinite}
+.hotcard{outline:2px solid var(--accent)}.hotnum{animation:blink 1s steps(2,start) infinite}
+@keyframes blink{to{visibility:hidden}}
+@media (prefers-reduced-motion:reduce){.hot h3,.hotnum{animation:none}}
 .empty{text-align:center;color:var(--sub);padding:30px}
 </style></head><body>
 <header><h1>쿠팡 꿀템 모음</h1><p class="disc">이 포스팅은 쿠팡 파트너스 활동의 일환으로, 이에 따른 일정액의 수수료를 제공받습니다.</p>
 <input id="q" type="search" inputmode="search" placeholder="영상 번호(예: 1) 또는 상품명 검색" aria-label="검색"></header>
-<main id="list"><article id="26" data-q="#26 26 국내산 햇 꿀고구마 1.5kg">
+<main id="list"><section class="hot"><h3>🔥 Hot! 템</h3><article class="hotcard">
+  <div class="num hotnum">HOT</div>
+  <img src="https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/15511491041309-3bfb3f34-50fe-4e85-8079-d3172ff05b7b.jpg" alt="" loading="lazy">
+  <div class="body"><h2>국내산 햇 꿀고구마 1.5kg</h2>
+    <a class="buy" href="https://link.coupang.com/a/hOSEQn6ubY" target="_blank" rel="noopener sponsored">구매하러 가기</a></div>
+</article></section><article id="26" data-q="#26 26 국내산 햇 꿀고구마 1.5kg">
   <div class="num">#26</div>
   <img src="https://thumbnail.coupangcdn.com/thumbnails/remote/492x492ex/image/retail/images/15511491041309-3bfb3f34-50fe-4e85-8079-d3172ff05b7b.jpg" alt="" loading="lazy">
   <div class="body"><h2>국내산 햇 꿀고구마 1.5kg</h2>
@@ -128,7 +137,7 @@ img{width:96px;height:96px;object-fit:cover;border-radius:12px;flex:none}
     <a class="buy" href="https://link.coupang.com/a/hNU1WfNIYe" target="_blank" rel="noopener sponsored">구매하러 가기</a></div>
 </article><p class="empty" hidden>찾는 번호가 없어요</p></main>
 <script>
-const q=document.getElementById('q'),arts=[...document.querySelectorAll('article')],empty=document.querySelector('.empty');
+const q=document.getElementById('q'),arts=[...document.querySelectorAll('article[id]')],hot=document.querySelector('.hot'),empty=document.querySelector('.empty');
 q.addEventListener('input',()=>{const v=q.value.trim().replace(/^#/,'');let n=0;
- arts.forEach(a=>{const hit=!v||(/^\d+$/.test(v)?a.id===v:a.dataset.q.includes(v));a.hidden=!hit;n+=hit});empty.hidden=n>0});
+ arts.forEach(a=>{const hit=!v||(/^\d+$/.test(v)?a.id===v:a.dataset.q.includes(v));a.hidden=!hit;n+=hit});empty.hidden=n>0;if(hot)hot.hidden=!!v});
 </script></body></html>
